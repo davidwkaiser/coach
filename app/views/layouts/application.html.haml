@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Coach
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    .container
+      - if flash[:notice]
+        .notices
+          - flash[:notice].each do |note|
+            %p= note
+      - if flash[:errors]
+        .errors
+          - flash[:errors].each do |err|
+            %p= err
+      = yield

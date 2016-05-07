@@ -1,0 +1,10 @@
+%h1
+
+- @conversation.turns.each do |turn|
+  %p= turn.utterance
+
+= form_for ([@conversation, @conversation.turns.build]) do |f|
+  = f.label "Answer"
+  = f.text_field :utterance
+  = f.submit "Submit"
+

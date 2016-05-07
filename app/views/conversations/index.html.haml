@@ -1,1 +1,6 @@
-%H1 WTF, dude?
+%H1 Welcome to Auto-Coach!
+.new-conversation-form
+  = form_for @conversation do |f|
+    = f.label :email
+    = f.text_field :email
+    = f.submit "Start Conversation"

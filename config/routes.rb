@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   resources :conversations do
-    resources :utterances
+    resources :turns
   end
 
 
