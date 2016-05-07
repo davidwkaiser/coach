@@ -1,5 +1,6 @@
 class Conversation < ActiveRecord::Base
   has_many  :turns
+  validates :email, presence: true
 
   FIRST_QUESTION = "What would you like to get from our discussion today?"
   QUESTIONS = [
