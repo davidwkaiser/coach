@@ -21,8 +21,11 @@ ActiveRecord::Schema.define(version: 20160507171424) do
 
   create_table "turns", force: :cascade do |t|
     t.string   "utterance"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "conversation_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
   end
+
+  add_index "turns", ["conversation_id"], name: "index_turns_on_conversation_id"
 
 end
