@@ -1,14 +1,12 @@
 Rails.application.routes.draw do
 
-
-  resources :conversations
-
-
-
+  resources :conversations do
+    resources :utterances
+  end
 
 
 
-  root "conversations:index"
+  root "conversations#index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
