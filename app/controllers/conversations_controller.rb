@@ -23,9 +23,21 @@ class ConversationsController < ApplicationController
     @conversation = Conversation.find(params[:id])
   end
 
+  def update
+    @conversation = Conversation.find(params[:id])
+    if @conversation.save
+      flash[:notice] = ["Your conversation will be emailed to you shortly"]
+      redirect_to '/'
+    else
+      flash.errors.full_messages.uniq
+      redirect_to conversation_path(@conversation.id)
+    end
+  end
+
   private
 
   def conversation_params
     params.require(:conversation).permit(:email)
   end
+
 end
