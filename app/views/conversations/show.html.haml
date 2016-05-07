@@ -1,12 +1,14 @@
 %h1
 
 - @conversation.turns.each do |turn|
+  %div.utterance
   %p= turn.utterance
+.ongoing_conversation
+  = form_for ([@conversation, @conversation.turns.build]) do |f|
+    = f.label "Answer"
+    = f.text_field :utterance
+    = f.submit "Submit Response"
 
-= form_for ([@conversation, @conversation.turns.build]) do |f|
-  = f.label "Answer"
-  = f.text_field :utterance
-  = f.submit "Submit"
-
-= form_for [@conversation] do |f|
-  =f.submit "Click when done"
+  .end_it
+    = form_for [@conversation] do |f|
+      =f.submit "Click when finished"

@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 %html
   %head
-    %title Coach
+    %title Auto-Coach
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    %H1 Auto-Coach!
+    %H2 For guidance and answers
+    %div.center_me= button_to "Home", root_path
+
     .container
       - if flash[:notice]
         .notices
