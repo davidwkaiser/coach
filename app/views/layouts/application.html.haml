@@ -6,9 +6,10 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-    %H1 Auto-Coach!
-    %H2 For guidance and answers
-    %div.center_me= button_to "Home", root_path
+    .header
+      %H1 Auto-Coach!
+      %H2 Like an Executive Coach, but Free...
+      %div.center_me= button_to "Home", root_path, :method => "get"
 
     .container
       - if flash[:notice]
@@ -20,3 +21,8 @@
           - flash[:errors].each do |err|
             %p= err
       = yield
+    .footer
+      %p Created by David Kaiser, PhD
+      %p Executive Coach and Ruby on Rails Programmer
+      %p
+        =mail_to "dave@darkmatterconsulting.com", "Contact Dave"
