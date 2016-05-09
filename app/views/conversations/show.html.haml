@@ -1,11 +1,7 @@
-%h1
-
-- @conversation.turns.each do |turn|
-  %div.utterance
-    %p= turn.utterance
+= render @conversation.turns
 .ongoing_conversation
   = form_for ([@conversation, @conversation.turns.build]) do |f|
-    = f.label "ANSWER:"
+    = f.label "Answer"
     = f.text_field :utterance
     = f.submit "Submit Response"
 
