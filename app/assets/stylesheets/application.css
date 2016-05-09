@@ -72,9 +72,14 @@ div.utterance {
   margin: 5px;
   border-radius: 15px;
   box-shadow: 5px 5px 5px gray;
+  text-shadow: 1px 1px red;
 }
 
 a {
-
   color:white;
+}
+
+.notices, .errors {
+  color: red;
+  background-color: white;
 }
