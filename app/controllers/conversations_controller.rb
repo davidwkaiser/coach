@@ -26,7 +26,7 @@ class ConversationsController < ApplicationController
   def update
     @conversation = Conversation.find(params[:id])
     if @conversation.save
-      flash[:notice] = ["Your conversation will be emailed to you shortly"]
+      flash[:notice] = ["Your conversation will be emailed to you shortly!"]
       ConversationMailer.send_conversation(@conversation)
       redirect_to '/'
     else
