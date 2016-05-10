@@ -8,7 +8,10 @@ class TurnsController < ApplicationController
     @conversation = Conversation.find(params[:conversation_id])
     @turn = @conversation.turns.create(turn_params)
     @conversation.turns << Turn.new(utterance: Conversation.question)
-    redirect_to conversation_path(@conversation)
+    respond_to do |format|
+      format.js {@conversation}
+      format.html {redirect_to conversation_path(@conversation)}
+    end
   end
 
   def get_question
