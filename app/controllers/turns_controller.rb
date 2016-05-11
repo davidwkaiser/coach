@@ -7,9 +7,10 @@ class TurnsController < ApplicationController
   def create
     @conversation = Conversation.find(params[:conversation_id])
     @turn = @conversation.turns.create(turn_params)
-    @conversation.turns << Turn.new(utterance: Conversation.question)
+    @question = Turn.new(utterance: Conversation.question)
+    @conversation.turns << @question
     respond_to do |format|
-      format.js {@conversation}
+      format.js {[@turn, @question]}
       format.html {redirect_to conversation_path(@conversation)}
     end
   end
@@ -17,8 +18,6 @@ class TurnsController < ApplicationController
   def get_question
     Conversation.question
   end
-
-
 
   private
 
